@@ -5,7 +5,7 @@
     
     body
     {
-        background-color: #1a1a1a;
+        background-color: rgb(15,15,16);
     }
     
     .content
@@ -27,7 +27,7 @@
 	{
 		margin-top: 10px;
 		
-		background-color: #151515;
+		background-color: rgb(10,10,10);
 		
 		font-family: Monaco, Inconsolata, monospace;
 		text-align: left;
@@ -192,7 +192,8 @@ tilemap room_5_tmap
 		 'dat/room5/139.png'
 		 'dat/room5/140.png'
 		 'dat/room5/141.png'
-		 'dat/room5/000.png'
+		 'dat/room5/142.png'
+		 'dat/room5/143.png'
 	};
 	.blockers = 
 	[
@@ -290,13 +291,13 @@ tilemap room_5_tmap
 		['none'],  /* 91 */
 		['none'],  /* 92 */
 		['none'],  /* 93 */
-		['full'],  /* 94 */
+		['none'],  /* 94 */
 		['full'],  /* 95 */
 		['full'],  /* 96 */
 		['full'],  /* 97 */
 		['full'],  /* 98 */
 		['full'],  /* 99 */
-		['none'],  /* 100 */
+		['full'],  /* 100 */
 		['none'],  /* 101 */
 		['none'],  /* 102 */
 		['none'],  /* 103 */
@@ -306,12 +307,12 @@ tilemap room_5_tmap
 		['none'],  /* 107 */
 		['none'],  /* 108 */
 		['none'],  /* 109 */
-		['full'],  /* 110 */
+		['none'],  /* 110 */
 		['full'],  /* 111 */
 		['full'],  /* 112 */
 		['full'],  /* 113 */
 		['full'],  /* 114 */
-		['none'],  /* 115 */
+		['full'],  /* 115 */
 		['none'],  /* 116 */
 		['none'],  /* 117 */
 		['none'],  /* 118 */
@@ -322,11 +323,11 @@ tilemap room_5_tmap
 		['none'],  /* 123 */
 		['none'],  /* 124 */
 		['none'],  /* 125 */
-		['full'],  /* 126 */
+		['none'],  /* 126 */
 		['full'],  /* 127 */
 		['full'],  /* 128 */
 		['full'],  /* 129 */
-		['none'],  /* 130 */
+		['full'],  /* 130 */
 		['none'],  /* 131 */
 		['none'],  /* 132 */
 		['none'],  /* 133 */
@@ -336,9 +337,10 @@ tilemap room_5_tmap
 		['none'],  /* 137 */
 		['none'],  /* 138 */
 		['none'],  /* 139 */
-		['full'],  /* 140 */
-		['full'],  /* 141 */
-		['none']   /* 142 */
+		['none'],  /* 140 */
+		['none'],  /* 141 */
+		['full'],  /* 142 */
+		['full']   /* 143 */
 	];
 	.block_bool = 
 	[
@@ -484,7 +486,8 @@ tilemap room_5_tmap
 		'and',  /* 139 */
 		'and',  /* 140 */
 		'and',  /* 141 */
-		'and'   /* 142 */
+		'and',  /* 142 */
+		'and'   /* 143 */
 	];
 	.array = 
 [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -495,13 +498,14 @@ tilemap room_5_tmap
 [51,24,12,52,15,28,28,28,28,53,54,55,56,57,58,49,26,12,59],
 [60,61,61,52,62,63,64,65,66,67,68,69,70,71,72,73,36,36,50],
 [74,61,61,75,76,64,63,63,77,78,79,80,81,82,83,84,36,36,59],
-[85,86,61,87,76,64,88,88,89,90,91,142,92,93,93,94,36,95,96],
-[0,97,98,99,100,101,102,103,104,105,106,142,107,108,109,110,111,112,0],
-[0,0,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,0,0],
-[0,0,128,129,130,131,132,133,134,135,136,137,138,139,139,140,141,0,0],
+[85,86,61,87,76,64,88,88,89,90,91,92,93,94,94,95,36,96,97],
+[0,98,99,100,101,102,103,104,105,106,107,92,108,109,110,111,112,113,0],
+[0,0,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,0,0],
+[0,0,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,0,0],
 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 ];
 }
+
 
 
 tilemap room_4_tmap
@@ -1543,9 +1547,7 @@ actor room_0_exit_0
 	body
 	{
 		
-		
 		r0 = .msg_check('player','interact');
-		
 		if r0
 		{
 			portal_1.init();
@@ -1923,17 +1925,12 @@ actor ch0
 		 * space key is pressed down.
 		 */
 		r0 = key_down('space');
-		
-        /* let player "interact" with spacebar. */
 		if r0
 			.msg_send('upclose','interact');
 		
 		/* handle key movement and clipping */
-		else
-		{
-			.key_move(1);
-			.clip();
-		}
+		.key_move(1);
+		.clip();
 		
 		next_frame();
 	}
@@ -1958,6 +1955,27 @@ actor present_0
 	
 	body
 	{
+		r1 = cmp_equal(.present_state, 'closed');
+		if r1
+		{
+			r0 = .msg_check('player','interact');
+			if r0
+			{
+				main_msg.type = set('message');
+				main_msg.text = set('#b You picked up test item.#w');
+				main_msg.open();
+				
+				.sprt = set(-1);
+				.solid =  set(0);
+				
+				.present_state = set('opened');
+				
+				main_inventory.additem('i_testitem');
+				
+				.msg_clear();
+			}
+		}
+		
 		next_frame();
 	}
 	
@@ -1965,18 +1983,69 @@ actor present_0
 
 
 </object>
+		<object id='all_win' hidden>
+
+window main_msg
+{
+	.pos = [20,20];
+	
+	.bg_color = [10,10,30];
+    
+    .font = '11px monaco, inconsolatia, monospace';
+	
+    .text = '';
+    
+    
+    
+    .nlines = 4;
+    .height = 55;
+    .width = 180;
+    
+}
+
+window main_msg1
+{
+	.pos = [40, 40];
+	
+	.bg_color = [10,10,30];
+    
+    .font = '11px monaco, inconsolatia, monospace';
+	
+    .text = '';
+    
+    .inventory = 'main_inventory';
+    
+    .nlines = 4;
+    .height = 55;
+    .width = 180;
+}
+
+window main_input
+{
+	.pos = [40,50];
+	
+	.bg_color = [10,10,30];
+    
+    .font = '10px monaco, inconsolatia, monospace';
+	
+    .text = '';
+    
+    .type = 'input';
+}
+</object>
 		<object id='main' hidden>
         
 /* this is to serve as a reference for
  * constructing rpg's from the engine.
  */
 
-
+#include all_win#
 #include all_actrs#
 #include all_sprites#
 #include all_tmaps#
 #include all_snd#
 #include all_exits#
+#include all_items#
 
 
 game main
@@ -1997,14 +2066,15 @@ game main
 	
 	.audio_compressor_gain = 1.0;
 	
+	.audio_lowpass_gain = 0.2;
+	
 	.audio_master_gain = 0.8;
     
 	body		/** entry point **/
 	{	
-	  	println('press esc to kill vm. ');
+	  	println('press "m" for menu. ');
         
 		main_esc_listen.init();
-		
 		
 		
 		r0 = cmp_equal(main.game_skip_psswd,1);
@@ -2015,7 +2085,7 @@ game main
         {
 			main_msg.type = set('message');
 			main_msg.text = set('#b (This game#n   is currently 
-password#n   protected.)#p:70# #s:main_get_psswd#');
+				password#n   protected.)#p:70# #s:main_get_psswd#');
 			main_msg.open();
 		}
 	}
@@ -2092,7 +2162,7 @@ gen main_bg_run
 {
 	body
 	{
-	  r0 = key_down('t');
+		r0 = key_down('t');
         if r0
         {
 			main_msg.type = set('menu');
@@ -2109,12 +2179,34 @@ gen main_bg_run
 			main_msg.type = set('menu');
 			main_msg.grab_keys = set(1);
 			
-			main_msg.text = set('- test menu -#n  #e:option1:openmsg1#  #e:
-option2:killmenu# #n  #e:option3:killmenu#  #e:option4:killmenu#');
+			main_msg.text = set('
+- menu -#n
+  #e:testmsg:openmsg1#  #e:bag:main_open_inventory# #n
+  #e:close  :killmenu#  #e:kill vm:main_killvm#');
 			main_msg.open();
 		}
 		
+		
 		next_frame();
+	}
+}
+
+gen main_open_inventory
+{
+	body
+	{
+		main_msg1.close();
+		main_msg1.type = set('inventory');
+		main_msg1.grab_keys = set(1);
+		main_msg1.open();
+	}
+}
+
+gen main_killvm
+{
+	body
+	{
+		portal_term.init();
 	}
 }
 
@@ -2122,11 +2214,13 @@ gen main_esc_listen
 {
 	body
 	{
-		/* if escape key is pressed, start term portal. */
 		
 		r0 = key('escape');
 		if r0
-			portal_term.init();
+		{
+			main_msg.close();
+			main_msg1.close();
+		}
 		
 		next_frame();
 	}
@@ -2156,7 +2250,7 @@ gen killmsg0
 	body
 	{
 		main_msg.close();
-		main_msg1.close(); /* don't forget */
+		main_msg1.close();
 	}
 }
 
@@ -2170,66 +2264,20 @@ gen print_input
 
 
 
-window main_msg
-{
-	.pos = [20,20];
-	
-	.bg_color = [10,10,30];
-    
-    .font = '10px monaco, inconsolatia, monospace';
-	
-    .text = '';
-    
-    .nlines = 4;
-    .height = 55;
-    .width = 160;
-    
-}
-
-window main_msg1
-{
-	.pos = [40, 40];
-	
-	.bg_color = [10,10,30];
-    
-    .font = '10px monaco, inconsolatia, monospace';
-	
-    .text = '';
-    
-    .nlines = 4;
-    .height = 55;
-    .width = 160;
-}
-
-window main_input
-{
-	.pos = [40,50];
-	
-	.bg_color = [10,10,30];
-    
-    .font = '10px monaco, inconsolatia, monospace';
-	
-    .text = '';
-    
-    .type = 'input';
-}
-
-
-
-
-
-#include allportals#
-
-#include allrooms#
+#include all_portals#
+#include all_rooms#
 
 		</object>
-		<object id='allportals' hidden>
+		<object id='all_portals' hidden>
 
 /* enter room 0 initially. */
 portal portal_0
 {
     body
     {
+		/*add initial set of items to inventory. */
+		main_inventory.additem(i_lighter);
+		
         keys_disable();         /* disable user input */
         
         sleep(main.fad_dur);    /* wait for fad out trans. */
@@ -2608,24 +2656,82 @@ portal portal_term
 }
 
 </object>
-		<object id='allitems' hidden>
+		<object id='all_items' hidden>
+
+inventory main_inventory
+{
+	.dat = [];
+	.name = 'item bag';
+}
+
+/* each item has only one available instance (as any other object)
+
+/* thus, if one wanted to plant healing items throughout the game,
+ *   a new set of objects for each item would have to be created.
+ */
 item i_lighter
 {
-	check = 1;
-	use = 1;
 	
-	desc = 'A pocket lighter with plenty of fuel.';
+	.name = 'lighter';
+	.desc = 'A pocket lighter with plenty of fuel.';
+	
+	.use_script = 'use_lighter';
 	
 	/* when item is used, do this: */
 	body
 	{
 		ch0.msg_send('upclose','lighter');
-		
+		println('used lighter!');
 	}
 }
 
+gen use_lighter  
+{
+	body
+	{
+		/* this script is responsible for "using" the item,
+		 * as well as closing the inventory window
+		 */
+		main_msg.close();
+		main_msg1.close();
+		
+		
+		/*do lighter click sound */
+		
+		i_lighter.init();
+	}
+}
+
+
+item i_testitem
+{
+	
+	.name = 'testitem';
+	.desc = 'A test item.';
+	
+	.use_script = 'use_testitem';
+	
+	/* when item is used, do this: */
+	body
+	{
+		main_msg.close();
+		main_msg1.close();
+		main_msg1.type = set('message');
+		main_msg1.text = set('#b [Using test item ...]#w');
+		main_msg1.open();
+	}
+}
+gen use_testitem
+{
+	body
+	{
+		i_testitem.init();
+	}
+}
+
+
 </object>
-		<object id='allrooms' hidden>
+		<object id='all_rooms' hidden>
 
 /* labyrinth 0 under passage */
 room room_1
