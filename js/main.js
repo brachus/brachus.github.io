@@ -211,7 +211,7 @@ var scroll_to_top = function()
 $(window).ready(
 	function()
 	{
-		effect_check_through_fadein(false);
+		effect_check_through_fadein(true);
 		effect_no_shadow_at_top();
 		
 		no_scrolltotop_at_top();
