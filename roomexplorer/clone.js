@@ -4,6 +4,7 @@
  *      code posted by ConroyP on stackoverflow.com:
  * 
  * 		http://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-clone-an-object
+ * 
  */
 
 function clone(obj) {

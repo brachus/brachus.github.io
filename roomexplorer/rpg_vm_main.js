@@ -6,7 +6,6 @@
  * Copyright 2015,
  * Kyle Caldbeck
  *
- *
  */
  
 /* check to see if script even parsed through

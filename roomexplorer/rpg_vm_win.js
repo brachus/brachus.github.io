@@ -639,8 +639,10 @@ var vm_win =
 			return [tcol, trow];
 		},
     
-	parse_msg_text:  /*implement: #e:<label>:<obj_name># */
+	parse_msg_text:
 		function(in_str, in_type)
+			
+		{
 			/* type = 'message' || 'menu' */
 		
 			/* small parser for win text format.
@@ -666,7 +668,6 @@ var vm_win =
 			 * 
 			 * 
 			 */
-		{
 			var out = [];
 			
 			var parse_add = out;
@@ -816,7 +817,7 @@ var vm_win =
 		},
 		
     render:
-        function(in_ctx) /* takes in canvas (context) */
+        function(in_ctx)
         {
             /* for each window in win_list (activated),
              *      render borders,
