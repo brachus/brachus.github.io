@@ -128,6 +128,8 @@ a.navitem, a.navitem_active, a.navitem_search, a.navitem_search_close
 	font-size:18px;
 	
 	cursor:pointer;
+	
+	transition: padding-left .1s, padding-right .1s, font-size .1s, width .1s, height .1s;
 }
 
 a.navitem_search, a.navitem_search_close
@@ -496,3 +498,65 @@ a.button_black_small_over_black:hover
 {
 	background-color:#d0d0d0;
 }
+
+
+@media screen and (max-width: 1200px)
+{
+	a.navitem, a.navitem_active
+	{
+		
+		padding-left:20px;
+		padding-right:20px;
+		
+		font-size:14px;
+	}
+	
+	.content_half, .content_third, .content_image, .content_text, .content
+	{
+		font-size:14px;
+	}
+
+}
+
+@media screen and (max-width: 800px)
+{
+	a.navitem, a.navitem_active
+	{
+		
+		padding-left:10px;
+		padding-right:10px;
+		
+		height:40px;
+		width:auto;
+		
+		font-size:12px;
+	}
+
+}
+
+@media screen and (max-width: 600px)
+{
+	a.navitem, a.navitem_active
+	{
+		
+		padding-left:5px;
+		padding-right:5px;
+		
+		height:30px;
+		width:auto;
+		
+		font-size:12px;
+	}
+	
+	.nav
+	{
+		height:30px;
+	}
+	
+	.content_half, .content_third, .content_image, .content_text, .content
+	{
+		font-size:12px;
+	}
+
+}
+	

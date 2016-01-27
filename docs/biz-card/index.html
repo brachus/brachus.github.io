@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	
+	<title>
+		Flippable Business Card Doc
+	</title>
+	
+	<link href="doc/style.css" rel="stylesheet" type="text/css">
+	
+</head>
+<body>
+	
+	<div class='table_contents'>
+		<a class='table_contents_title_item'>
+			Table of Contents
+		</a>
+		<a href='#doc_top' class='table_contents_minor_item'>
+			General Info
+		</a>
+		<a href='#doc_thankyou' class='table_contents_minor_item'>
+			Thank You
+		</a>
+		<a href='#doc_whatyoullneed' class='table_contents_minor_item sec_wborder'>
+			What You will Need
+		</a>
+		<a href='#doc_carddir' class='table_contents_minor_item'>
+			Assets Folder
+		</a>
+		<a href='#doc_html' class='table_contents_minor_item'>
+			HTML
+		</a>
+		<a href='#doc_js' class='table_contents_minor_item'>
+			Javascript
+		</a>
+		<a href='#doc_css' class='table_contents_minor_item sec_wborder'>
+			CSS
+		</a>
+		<a href='#doc_copyingassets' class='table_contents_minor_item'>
+			Copying the Assets
+		</a>
+		<a href='#doc_copyinghtml' class='table_contents_minor_item'>
+			Copying the HTML code
+		</a>
+		<a href='#doc_copyingimages' class='table_contents_minor_item'>
+			Copying your images
+		</a>
+	</div>
+	
+	<!--div class='top_bar'>
+		<div class='top_bar_item'> <span class='top_bar_small'>Created:</span> 1-30-16</div>
+		<div class='top_bar_item'><span class='top_bar_small'>by</span> Kyle Caldbeck</div>
+		<a class='top_bar_email' href='mailto:kyle.m.caldbeck@gmail.com'>kyle.m.caldbeck@gmail.com</a>
+	</div>-->
+	
+	<div class='container'>
+		
+		<div id='doc_top' class='content' >
+			<div class='content-header'>
+				<h1>
+					Flippable Business Card
+					<br>
+					Documentation
+				</h1>
+			</div>
+			<div class='content-header-minor'>
+				<div class='content-info'>
+					Version 1.0<br>
+					Created: 1-30-16<br>
+					by Kyle Caldbeck <br>
+					<a class='content-email' href='mailto:kyle.m.caldbeck@gmail.com'>
+						(mail)
+					</a> 
+					<a class='content-email' href='http://codecanyon.net/user/braccus'>
+						(codecanyon profile)
+					</a>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		<div id='doc_thankyou' class='content thank_you'>
+			
+				<div class='content-header-minor'><h2>Thank You</h2></div>
+				First of all, thank you for your purchase.  Feel free to send questions
+				and info on any problems you run into, and I'll answer to the best of my ability.
+		</div>
+		
+		<div id='doc_whatyoullneed' class='content'>
+			<div class='content-header-minor'><h2>What You will Need:</h2></div>
+			All you need are two images for the <em>front</em> and <em>back</em> of your business card.  Any resolution is accepted, though
+			a ratio of 3/2 is recommended.  The formats supported are SVG, PNG, and JPG.<br>
+			Here's what's included in the sample:<br>
+			<img class='cardexample' src='card/front.svg'>
+			<img class='cardexample' src='card/back.svg'> <br>
+			
+		</div>
+		
+		<div id='doc_carddir' class='content'>
+			<div class='content-header-minor'><h2>Assets Folder</h2></div>
+			All assets for the business card are stored in "card/".
+			The sections below will explain in depth all the needed assets.
+		</div>
+		
+		
+		<div id='doc_html' class='content'>
+			<div class='content-header-minor'><h2>HTML</h2></div>
+			The widget can be found in two sections located in "bizcard.html".<br>
+			
+			The first section contains the following: <br>
+			<ul>
+				<li>A link to the base stylesheet, "card/style.css"</li>
+				<li>The stylesheet responsible for loading images, "card/images.css" or
+					"card/images-noborder.css".</li>
+				<li>Link to Javascript code, "card/main.js".</li>
+			</ul>
+		</div>
+		
+		<div id='doc_js' class='content'>
+			<div class='content-header-minor'><h2>Javascript</h2></div>
+			All the Javascript code is stored in "card/main.js".<br><br>
+			
+			There is as of now only one
+			tweakable parameter, "keep_howto", which preset to "true".
+			Set to true, the message prompting a user to hover their cursor
+			over the
+		</div>
+		
+		<div id='doc_css' class='content'>
+			<div class='content-header-minor'><h2>CSS</h2></div>
+			As explained above, there are three CSS files included in the assets folder:
+			The base stylesheet "style.css", and the two others responsible for loading
+			images, "images.css" and "images-noborder.css".
+			
+			("images.css" contains a 1px border, while "noborder" doesn't)
+		</div>
+		
+		<div id='doc_copyingassets' class='content'>
+			<div class='content-header-minor'><h2>Copying the assets</h2></div>
+			<img class='screenshot' src='doc/carddir.png'><br>
+			Select the "card/" assets folder and copy it over to the folder that contains
+			the html file you want to insert the business card.
+		</div>
+		
+		<div id='doc_copyinghtml' class='content'>
+			<div class='content-header-minor'><h2>Copying the HTML code</h2></div>
+			Open up the html page you want the business card inserted.<br>
+			Each section of the business card is separated by a "BEGIN" and "END" comments.<br>
+			<img class='screenshot' src='doc/top_sec.png'><br>
+			First, select the top-most section (containing the stylesheets/script), and copy it over to
+			the header section of your html page.<br>
+			<img class='screenshot' src='doc/btm_sec.png'><br>
+			Then, select the bottom-most section (containing the actual card html), and copy it to your choice
+			of section in your html page.
+		</div>
+		
+		<div id='doc_copyingimages' class='content'>
+			<div class='content-header-minor'><h2>Copying your images</h2></div>
+			(Keep in mind your images must be named "back" and "front".)<br>
+			Go over to the copied assets folder.<br>
+			Delete the two example images "front.svg" and "back.svg".<br>
+			Select the images you want for your business card.<br>
+			(Keep in mind your images must be named "back" and "front".)<br>
+			Copy the images over to the assets folder.<br><br>
+			Refresh the your page, and you should see the widget on your page.<br>
+			Feel free to modify at your heart's content.  Of course, this doesn't
+			exclusively need to be 
+		</div>
+		
+	</div>
+	
+	<div class='copyright'>
+		&copy; 2016, Kyle Caldbeck, All rights reserved.
+	</div>
+	
+</body>
