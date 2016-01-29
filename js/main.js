@@ -67,7 +67,6 @@ var search_open = function()
 	$('a.navitem_search_close').animate(
 		{
 			'width':'20px',
-			'padding-top':'14px',
 			'padding-right':'40px',
 			'padding-left':'10px',
 			'opacity':'1'
@@ -86,7 +85,8 @@ var search_close = function()
 		{
 			'width':'0', 
 			'opacity':'0',
-			'padding':'14px 0px'
+			'padding-left':'0px',
+			'padding-right':'0px'
 		},
 		fad_dur/2
 	);

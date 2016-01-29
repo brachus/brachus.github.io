@@ -30,9 +30,6 @@
 		<a href='#doc_html' class='table_contents_minor_item'>
 			HTML
 		</a>
-		<a href='#doc_js' class='table_contents_minor_item'>
-			Javascript
-		</a>
 		<a href='#doc_css' class='table_contents_minor_item sec_wborder'>
 			CSS
 		</a>
@@ -44,6 +41,9 @@
 		</a>
 		<a href='#doc_copyingimages' class='table_contents_minor_item'>
 			Copying your images
+		</a>
+		<a href='#doc_multiplecards' class='table_contents_minor_item'>
+			Multiple Cards
 		</a>
 	</div>
 	
@@ -66,7 +66,7 @@
 			<div class='content-header-minor'>
 				<div class='content-info'>
 					Version 1.0<br>
-					Created: 1-30-16<br>
+					Created: 1-27-16<br>
 					by Kyle Caldbeck <br>
 					<a class='content-email' href='mailto:kyle.m.caldbeck@gmail.com'>
 						(mail)
@@ -90,15 +90,21 @@
 		<div id='doc_whatyoullneed' class='content'>
 			<div class='content-header-minor'><h2>What You will Need:</h2></div>
 			All you need are two images for the <em>front</em> and <em>back</em> of your business card.  Any resolution is accepted, though
-			a ratio of 3/2 is recommended.  The formats supported are SVG, PNG, and JPG.<br>
+			a ratio of 3:2 is recommended.  The formats supported are SVG, PNG, and JPG.<br>
 			Here's what's included in the sample:<br>
-			<img class='cardexample' src='card/front.svg'>
-			<img class='cardexample' src='card/back.svg'> <br>
+			<img class='cardexample' src='bizcard/card/front.svg'>
+			<img class='cardexample' src='bizcard/card/back.svg'>
+			<img class='cardexample' src='bizcard/card/front2.svg'>
+			<img class='cardexample' src='bizcard/card/back2.svg'> <br>
+			
+			<img class='cardexample sideways' src='bizcard/card/front-sideways.svg'>
+			<img class='cardexample sideways' src='bizcard/card/back-sideways.svg'>
 			
 		</div>
 		
 		<div id='doc_carddir' class='content'>
 			<div class='content-header-minor'><h2>Assets Folder</h2></div>
+			Everything is in the "bizcard" folder.
 			All assets for the business card are stored in "card/".
 			The sections below will explain in depth all the needed assets.
 		</div>
@@ -108,32 +114,22 @@
 			<div class='content-header-minor'><h2>HTML</h2></div>
 			The widget can be found in two sections located in "bizcard.html".<br>
 			
+			"bizcard.html", "bizcard-multiple.html", and "bizcard-sideways.html"
+			are all examples.
+			
 			The first section contains the following: <br>
 			<ul>
 				<li>A link to the base stylesheet, "card/style.css"</li>
-				<li>The stylesheet responsible for loading images, "card/images.css" or
-					"card/images-noborder.css".</li>
-				<li>Link to Javascript code, "card/main.js".</li>
+				<li>The stylesheet responsible for loading images, "card/images.css".</li>
+				<li>Stylesheets for different effects: "noborder.css", "sideways.css".</li>
 			</ul>
-		</div>
-		
-		<div id='doc_js' class='content'>
-			<div class='content-header-minor'><h2>Javascript</h2></div>
-			All the Javascript code is stored in "card/main.js".<br><br>
-			
-			There is as of now only one
-			tweakable parameter, "keep_howto", which preset to "true".
-			Set to true, the message prompting a user to hover their cursor
-			over the
 		</div>
 		
 		<div id='doc_css' class='content'>
 			<div class='content-header-minor'><h2>CSS</h2></div>
 			As explained above, there are three CSS files included in the assets folder:
-			The base stylesheet "style.css", and the two others responsible for loading
-			images, "images.css" and "images-noborder.css".
-			
-			("images.css" contains a 1px border, while "noborder" doesn't)
+			The base stylesheet "style.css", the two others responsible for loading
+			images, "images.css", "images-multiple.css", "noborder.css", and "sideways.css".
 		</div>
 		
 		<div id='doc_copyingassets' class='content'>
@@ -148,26 +144,58 @@
 			Open up the html page you want the business card inserted.<br>
 			Each section of the business card is separated by a "BEGIN" and "END" comments.<br>
 			<img class='screenshot' src='doc/top_sec.png'><br>
-			First, select the top-most section (containing the stylesheets/script), and copy it over to
+			First, select the top-most section <span class='para'>(containing the stylesheets and example images)</span>, and copy it over to
 			the header section of your html page.<br>
 			<img class='screenshot' src='doc/btm_sec.png'><br>
-			Then, select the bottom-most section (containing the actual card html), and copy it to your choice
+			Then, select the bottom-most section <span class='para'>(containing the actual card html)</span>, and copy it to your choice
 			of section in your html page.
 		</div>
 		
 		<div id='doc_copyingimages' class='content'>
 			<div class='content-header-minor'><h2>Copying your images</h2></div>
-			(Keep in mind your images must be named "back" and "front".)<br>
-			Go over to the copied assets folder.<br>
-			Delete the two example images "front.svg" and "back.svg".<br>
+			Go over to the copied "card/" folder.<br>
+			<img class='screenshot' src='doc/selectimages.png'><br>
+			Delete the example images <span class='para'>("front.svg", "front2.svg", "back.svg", and "back2.svg").</span><br>
 			Select the images you want for your business card.<br>
-			(Keep in mind your images must be named "back" and "front".)<br>
-			Copy the images over to the assets folder.<br><br>
-			Refresh the your page, and you should see the widget on your page.<br>
-			Feel free to modify at your heart's content.  Of course, this doesn't
-			exclusively need to be 
+			<span class='para'>(Keep in mind your images must be named "back" and "front".)</span><br> 
+			Copy the images over to the assets folder.<br>
+			<img class='screenshot' src='doc/inaction.png'><br>
+			Refresh your page, and you should see the card on your page!<br>
+			Feel free to modify at your heart's content.
 		</div>
 		
+		<div id='doc_multiplecards' class='content'>
+			<div class='content-header-minor'><h2>Multiple Cards</h2></div>
+			You can add more than one instance a card in the same page, but if
+			you want separate designs, you're 
+			going to have to do the following:<br>
+			<img class='screenshot' src='doc/multic-n00.png'><br>
+			First, add the two images <span class='para'>(front/back)</span> for the second card to
+			the card/ folder.  <span class='para'>(e.g. "front2.png" and "back2.png").</span> <br>
+			<img class='screenshot' src='doc/multic-00.png'><br>
+			Go into the html code of the page you've already added a card to.
+			Select and copy the bottom section of html code which contains the first
+			card, and paste it to where ever you want the second card to be.<br>
+			<img class='screenshot' src='doc/multic-01.png'><br>
+			Add an id for your second card within both the "front" and "back"
+			figure elements.<br>
+			<img class='screenshot' src='doc/multic-02.png'><br>
+			Open up the stylesheet for loading images <span class='para'>(e.g. "images.css")</span>, and copy-paste
+			the existing code.<br>
+			<img class='screenshot' src='doc/multic-03.png'><br>
+			Add the id name you assigned the second card
+			to the front and back selectors of the copied code.<br>
+			<img class='screenshot' src='doc/multic-04.png'><br>
+			Change the filenames to in the "url" image loaders in the copied css code to
+			the images you're designating for the second card.  <span class='para'>(You should delete all but one "url" loader
+			for each side of the card.)</span><br>
+			<img class='screenshot' src='doc/multic-05.png'><br>
+			Refresh your page and you should see a second card with separate images.
+			
+			Ultimately, you can use "bizcard-multiple.html" and "images-multiple.css" as
+			models for how to get it done.<br>
+			
+		</div>
 	</div>
 	
 	<div class='copyright'>
